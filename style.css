@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+/* =========================================
+   1. 基本設定
+   ========================================= */
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+body {
+    /* ▼ 指定通りに修正しました ▼ */
+    color: #383E45;
+    font-family: "Hiragino Kaku Gothic ProN"; /* ヒラギノ */
+    font-size: 14.4px;      /* 0.9rem ではなく明示的に 14.4px 指定 */
+    font-style: normal;
+    font-weight: 300;       /* ここが重要（細字にする） */
+    line-height: normal;    /* 行間を詰める設定 */
+    
+    /* ▼ 背景色などはそのまま維持 ▼ */
+    background-color: #FFFFFF;
+    margin: 0; /* リセットCSSが効いていない場合の保険 */
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+a {
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* =========================================
+   共通の横幅設定
+   ========================================= */
+.wrapper {
+    max-width: 858px;
+    width: 100%;
+    margin: 0 auto;
+    /* トップページへの影響を避けるため、元の padding: 0 に戻しました */
+    padding: 0;
+}
+
+/* スマホの時だけ余白を戻す（メディアクエリ） */
+@media screen and (max-width: 858px) {
+    .wrapper {
+        padding: 0 20px;
+    }
+}
+
+/* セクション共通の余白 */
+.section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* 見出し */
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0px;
+    border: none;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 106px;
+    height: 1px;
+    background-color: #383E45;
+}
+
+/* =========================================
+   2. ヘッダー
+   ========================================= */
+#header {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.header__logo {
+    background-color: #393E46;
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.header__logo img {
+    width: 120px;
+    height: 40px;
+    vertical-align: bottom;
+}
+
+.header__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__navitem {
+    margin-left: 30px;
+}
+
+.header__navitem a {
+    color: #24292E;
+    font-family: "Hiragino Kaku Gothic ProN";
+    font-size: 14.4px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+/* =========================================
+   3. メインビジュアル
+   ========================================= */
+#mainvisual {
+    width: 100%;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+
+#mainvisual img {
+    width: 100%;
+    max-width: 1920px;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-style: none;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   4. About
+   ========================================= */
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.content-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   5. Bicycle (3カラム並び)
+   ========================================= */
+.bicycle-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 30px;
+}
+
+.bicycle-item {
+    width: 32%;
+}
+
+.bicycle-item a {
+    color: inherit;
+    display: block; /* リンクエリアを確保 */
+}
+
+.bicycle-item img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.item-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   6. フッター
+   ========================================= */
+#footer {
+    padding: 30px 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* =========================================
+   7. 詳細ページ専用スタイル
+   ========================================= */
+.detail {
+    padding-top: 0px;
+    padding-bottom: 80px;
+}
+
+.detail__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.detail__title {
+    color: #383E45;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 24px; 
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* ここをトップページと完全に一致させます */
+.detail__text {
+    color: #383E45;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 14.4px; /* bodyと同じに固定 */
+    font-style: normal;
+    font-weight: 300;   /* bodyと同じ細さに固定 */
+    line-height: normal; /* 一旦 body と同じ normal にして比較しやすくします */
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+/* 段落（pタグ）の間の余白を広げて「上下が近く感じる」のを解消 */
+.detail__text p {
+    margin-bottom: 25px; /* ここで「行間」ではなく「段落の間」を広げます */
+}
+
+.detail__text p:last-child {
+    margin-bottom: 0;
+}
+.detail__back {
+    text-align: center; /* これで中のリンクを中央に寄せます */
+    margin-top: 40px;   /* テキストとの間の距離 */
+}
+.detail__back a {
+    color: #383E45;
+    text-decoration: none;
+    display: inline-block; /* 念のためインラインブロックにしておくと余白が効きやすくなります */
+    font-size: 14.4px;
+}
+/* =========================================
+   8. レスポンシブ (スマホ表示)
+   ========================================= */
+@media (max-width: 768px) {
+    #header {
+        padding: 20px 0;
+        height: auto;
+    }
+
+    .header__navitem {
+        margin-left: 15px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .bicycle-list {
+        flex-direction: column;
+    }
+
+    .bicycle-item {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .detail__title {
+        font-size: 18px;
+    }
+
+    #mainvisual {
+        background-color: #FFFFFF;
+        padding: 0 15px;
+        margin-bottom: 40px;
+    }
+
+    #mainvisual img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        max-width: none;
+    }
+
+    .about-text {
+        width: 100%;
+        max-width: 345px;
+        color: #383E45;
+        font-family: "Hiragino Kaku Gothic ProN";
+        font-size: 14.4px;
+        font-weight: 300;
+        line-height: 1.8;
+        text-align: left;
+        margin: 0 auto;
+    }
+}
